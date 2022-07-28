@@ -1,4 +1,5 @@
 #import relevant libraries for flask, html rendering and loading the ML model
+
 from flask import Flask,request, url_for, redirect, render_template
 import pickle
 import pandas as pd
@@ -9,6 +10,7 @@ app = Flask(__name__)
 
 #model = pickle.load(open("model.pkl","rb"))
 model = joblib.load("ada_model.pkl")
+
 #scale = pickle.load(open("scale.pkl","rb"))
 scaler = joblib.load("scaler.pkl")
 
@@ -51,4 +53,3 @@ def predict():
 
 if __name__ == '__main__':
     app.run(debug=True)
-    
